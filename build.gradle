@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.3'
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 	id 'java'
+	id "org.flywaydb.flyway" version "9.2.1"
 }
 
 group = 'com.astlex'
@@ -19,6 +20,10 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+flyway {
+	url = 'jdbc:postgresql://localhost:5432/hrd_db?user=postgres&password=RikiTikiTavi'
 }
 
 tasks.named('test') {
